@@ -48,7 +48,8 @@ function collectPosts(data, config) {
 			},
 			frontmatter: {
 				title: getPostTitle(post),
-				date: getPostDate(post)
+				date: getPostDate(post),
+                                layout: 'post'
 			},
 			content: translator.getPostContent(post, turndownService, config)
 		}));
