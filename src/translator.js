@@ -7,11 +7,11 @@ function initTurndownService() {
 		codeBlockStyle: 'fenced'
 	});
 	
-	// add {:target="_blank"} to links
-	turndownService.addRule('strikethrough', {
+	// preserve links
+	turndownService.addRule('keep', {
 		filter: ['a'],
-		replacement: function (content) {
-			return content + '~'
+		replacement: function (content, node) {
+			return node.outerHTML
 		}
 	})
 
