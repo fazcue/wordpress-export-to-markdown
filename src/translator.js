@@ -6,6 +6,14 @@ function initTurndownService() {
 		bulletListMarker: '-',
 		codeBlockStyle: 'fenced'
 	});
+	
+	// add {:target="_blank"} to links
+	turndownService.addRule('strikethrough', {
+		filter: ['a'],
+		replacement: function (content) {
+			return content + '~'
+		}
+	})
 
 	// preserve embedded tweets
 	turndownService.addRule('tweet', {
